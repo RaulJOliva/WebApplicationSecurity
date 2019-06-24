@@ -1,0 +1,15 @@
+<script>
+	var a;
+	
+	function request_listener(){
+	a = JSON.parse(this.responseText);
+	for(i = 0; i < a.data.children.length; i++){
+	console.log(a.data.children[i].data.title)
+	document.write(a.data.children[i].data.title + '<br>')
+	}
+	}
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load",request_listener)
+	xhr.open("GET","https://www.reddit.com/r/netsec.json",true);
+	xhr.send();
+</script>
